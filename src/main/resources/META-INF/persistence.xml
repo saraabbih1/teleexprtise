@@ -20,8 +20,8 @@
             <property name="jakarta.persistence.jdbc.user"
                       value="root"/>
 
-           <property name="jakarta.persistence.jdbc.password"
-          value="CHANGE_ME"/>
+            <property name="jakarta.persistence.jdbc.password"
+                      value="MyNewPassword123!"/>
 
             <property name="hibernate.dialect"
                       value="org.hibernate.dialect.MySQLDialect"/>
