@@ -7,6 +7,7 @@ import jakarta.ws.rs.core.Application;
 
 import ma.youcode.teleexpertise.resource.PingResource;
 import ma.youcode.teleexpertise.resource.DemandeExpertiseResource;
+import ma.youcode.teleexpertise.resource.SpecialisteResource;
 
 @ApplicationPath("/api")
 public class ApplicationConfig extends Application {
@@ -15,7 +16,8 @@ public class ApplicationConfig extends Application {
     public Set<Class<?>> getClasses() {
         return Set.of(
                 PingResource.class,
-                DemandeExpertiseResource.class
+                DemandeExpertiseResource.class,
+                SpecialisteResource.class
         );
     }
 }
