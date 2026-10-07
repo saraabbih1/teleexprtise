@@ -1,7 +1,7 @@
 package ma.youcode.teleexpertise.enums;
 
 public enum Priorite {
-    NORMALE,
     URGENTE,
-    TRES_URGENTE
+    NORMALE,
+    NON_URGENTE
 }

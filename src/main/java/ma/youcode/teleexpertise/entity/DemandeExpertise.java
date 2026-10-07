@@ -1,67 +1,75 @@
 package ma.youcode.teleexpertise.entity;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import ma.youcode.teleexpertise.enums.*;
 
-@Entity 
+import ma.youcode.teleexpertise.enums.Priorite;
+import ma.youcode.teleexpertise.enums.StatutDemande;
+
+@Entity
 public class DemandeExpertise {
-    @Id 
+
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String motif;
+    private Long consultationId;
 
-    private String description;
+    private Long specialisteId;
 
-    @Enumerated (EnumType.STRING)
+    private String question;
+
+    @Enumerated(EnumType.STRING)
+    private Priorite priorite;
+
+    @Enumerated(EnumType.STRING)
     private StatutDemande statut;
 
-    @Enumerated (EnumType.STRING)
-    private Priorite priorite;
+    private String avis;
+
+    private String recommandations;
 
     private LocalDateTime dateCreation;
 
-    public DemandeExpertise(){
-
+    public DemandeExpertise() {
     }
 
-    public Long getId(){
+    public Long getId() {
         return id;
     }
 
-    public void setId(Long id){
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getMotif(){
-        return motif;
+    public Long getConsultationId() {
+        return consultationId;
     }
 
-    public void setMotif(String motif){
-        this.motif = motif;
+    public void setConsultationId(Long consultationId) {
+        this.consultationId = consultationId;
     }
 
-    public String getDescription(){
-        return description;
+    public Long getSpecialisteId() {
+        return specialisteId;
     }
 
-    public void setDescription(String description){
-        this.description = description;
+    public void setSpecialisteId(Long specialisteId) {
+        this.specialisteId = specialisteId;
     }
 
-    public StatutDemande getStatut(){
-        return statut;
+    public String getQuestion() {
+        return question;
     }
 
-    public void setStatut(StatutDemande statut) {
-        this.statut = statut;
+    public void setQuestion(String question) {
+        this.question = question;
     }
 
     public Priorite getPriorite() {
@@ -72,6 +80,30 @@ public class DemandeExpertise {
         this.priorite = priorite;
     }
 
+    public StatutDemande getStatut() {
+        return statut;
+    }
+
+    public void setStatut(StatutDemande statut) {
+        this.statut = statut;
+    }
+
+    public String getAvis() {
+        return avis;
+    }
+
+    public void setAvis(String avis) {
+        this.avis = avis;
+    }
+
+    public String getRecommandations() {
+        return recommandations;
+    }
+
+    public void setRecommandations(String recommandations) {
+        this.recommandations = recommandations;
+    }
+
     public LocalDateTime getDateCreation() {
         return dateCreation;
     }
@@ -79,6 +111,4 @@ public class DemandeExpertise {
     public void setDateCreation(LocalDateTime dateCreation) {
         this.dateCreation = dateCreation;
     }
-
-
 }
