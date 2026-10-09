@@ -10,6 +10,7 @@ import ma.youcode.teleexpertise.exception.NotFoundException;
 import ma.youcode.teleexpertise.entity.DemandeExpertise;
 import ma.youcode.teleexpertise.exception.DemandeExpertiseException;
 import ma.youcode.teleexpertise.service.DemandeExpertiseService;
+import ma.youcode.teleexpertise.dto.ErrorResponse;
 
 @Path("/demandes")
 @Produces(MediaType.APPLICATION_JSON)
@@ -37,16 +38,18 @@ public class DemandeExpertiseResource {
         } catch (NotFoundException e) {
 
             return Response
-                    .status(Response.Status.NOT_FOUND)
-                    .entity(e.getMessage())
-                    .build();
+                .status(Response.Status.NOT_FOUND)
+                .entity(new ErrorResponse(e.getMessage()))
+                .type(MediaType.APPLICATION_JSON)
+                .build();
 
         } catch (DemandeExpertiseException e) {
 
             return Response
-                    .status(Response.Status.BAD_REQUEST)
-                    .entity(e.getMessage())
-                    .build();
+                .status(Response.Status.BAD_REQUEST)
+                .entity(new ErrorResponse(e.getMessage()))
+                .type(MediaType.APPLICATION_JSON)
+                .build();
         }
     }
 }
