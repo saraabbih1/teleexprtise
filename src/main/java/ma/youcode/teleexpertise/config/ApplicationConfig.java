@@ -4,7 +4,7 @@ import java.util.Set;
 
 import jakarta.ws.rs.ApplicationPath;
 import jakarta.ws.rs.core.Application;
-
+import ma.youcode.teleexpertise.config.JacksonConfig;
 import ma.youcode.teleexpertise.resource.PingResource;
 import ma.youcode.teleexpertise.resource.DemandeExpertiseResource;
 import ma.youcode.teleexpertise.resource.SpecialisteResource;
@@ -17,7 +17,8 @@ public class ApplicationConfig extends Application {
         return Set.of(
                 PingResource.class,
                 DemandeExpertiseResource.class,
-                SpecialisteResource.class
+                SpecialisteResource.class,
+                JacksonConfig.class
         );
     }
 }
