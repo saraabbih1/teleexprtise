@@ -4,10 +4,12 @@ import java.util.Set;
 
 import jakarta.ws.rs.ApplicationPath;
 import jakarta.ws.rs.core.Application;
+import ma.youcode.teleexpertise.security.BasicAuthFilter;
 
 import ma.youcode.teleexpertise.resource.PingResource;
 import ma.youcode.teleexpertise.resource.DemandeExpertiseResource;
 import ma.youcode.teleexpertise.resource.SpecialisteResource;
+import org.glassfish.jersey.server.filter.RolesAllowedDynamicFeature;
 
 @ApplicationPath("/api")
 public class ApplicationConfig extends Application {
@@ -17,7 +19,9 @@ public class ApplicationConfig extends Application {
         return Set.of(
                 PingResource.class,
                 DemandeExpertiseResource.class,
-                SpecialisteResource.class
+                SpecialisteResource.class,
+                BasicAuthFilter.class,
+                RolesAllowedDynamicFeature.class
         );
     }
 }

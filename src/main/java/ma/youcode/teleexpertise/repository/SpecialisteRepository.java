@@ -8,6 +8,7 @@ import ma.youcode.teleexpertise.config.JPAUtil;
 import ma.youcode.teleexpertise.entity.Specialiste;
 import ma.youcode.teleexpertise.entity.Specialite;
 
+
 public class SpecialisteRepository {
 
     public List<Specialiste> findBySpecialite(Specialite specialite) {

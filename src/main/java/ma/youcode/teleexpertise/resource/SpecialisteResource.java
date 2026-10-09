@@ -2,6 +2,7 @@ package ma.youcode.teleexpertise.resource;
 
 import java.util.List;
 
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
@@ -15,6 +16,7 @@ import ma.youcode.teleexpertise.service.SpecialisteService;
 
 @Path("/specialistes")
 @Produces(MediaType.APPLICATION_JSON)
+@RolesAllowed("SPECIALISTE")
 public class SpecialisteResource {
 
     private final SpecialisteService service = new SpecialisteService();
