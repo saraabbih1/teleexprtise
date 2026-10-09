@@ -4,6 +4,7 @@ import java.util.Set;
 
 import jakarta.ws.rs.ApplicationPath;
 import jakarta.ws.rs.core.Application;
+import ma.youcode.teleexpertise.config.JacksonConfig;
 import ma.youcode.teleexpertise.security.BasicAuthFilter;
 
 import ma.youcode.teleexpertise.resource.PingResource;
@@ -20,6 +21,7 @@ public class ApplicationConfig extends Application {
                 PingResource.class,
                 DemandeExpertiseResource.class,
                 SpecialisteResource.class,
+                JacksonConfig.class
                 BasicAuthFilter.class,
                 RolesAllowedDynamicFeature.class
         );
