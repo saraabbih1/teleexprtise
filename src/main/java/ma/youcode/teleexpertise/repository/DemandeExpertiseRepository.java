@@ -57,4 +57,28 @@ public class DemandeExpertiseRepository {
             throw e;
         }
     }
+
+    public DemandeExpertise findById(Long id) {
+        return entityManager.find(DemandeExpertise.class, id);
+    }
+
+    public DemandeExpertise update(DemandeExpertise demande) {
+        try {
+            entityManager.getTransaction().begin();
+
+            DemandeExpertise updated = entityManager.merge(demande);
+
+            entityManager.getTransaction().commit();
+
+            return updated;
+
+        } catch (Exception e) {
+            if (entityManager.getTransaction().isActive()) {
+                entityManager.getTransaction().rollback();
+            }
+
+            throw e;
+        }
+    }
+
 }

@@ -43,6 +43,32 @@ public class DemandeExpertiseService {
         return repository.save(demande);
     }
 
+    public DemandeExpertise repondre(
+        Long id,
+        String avis,
+        String recommandations) {
+
+        DemandeExpertise demande = repository.findById(id);
+
+        if (demande == null) {
+            throw new NotFoundException(
+                "La demande d'expertise n'existe pas."
+            );
+        }
+
+        if (avis == null || avis.isBlank()) {
+            throw new DemandeExpertiseException(
+                "L'avis médical est obligatoire."
+            );
+        }
+
+        demande.setAvis(avis);
+        demande.setRecommandations(recommandations);
+        demande.setStatut(StatutDemande.TERMINEE);
+
+        return repository.update(demande);
+    }
+
     private void validate(DemandeExpertise demande) {
 
         if (demande == null) {
