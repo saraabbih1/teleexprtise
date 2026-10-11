@@ -21,7 +21,7 @@ public class ApplicationConfig extends Application {
                 PingResource.class,
                 DemandeExpertiseResource.class,
                 SpecialisteResource.class,
-                JacksonConfig.class
+                JacksonConfig.class,
                 BasicAuthFilter.class,
                 RolesAllowedDynamicFeature.class
         );
